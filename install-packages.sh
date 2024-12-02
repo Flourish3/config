@@ -17,7 +17,7 @@ curl -s https://ohmyposh.dev/install.sh | bash -s
 # ---
 # Install git-completion and git-prompt
 # ---
-cd ~/
+#cd ~/
 #curl -OL https://github.com/git/git/raw/master/contrib/completion/git-completion.zsh
 #mv ~/git-completion.zsh ~/.git-completion.zsh
 #curl https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
@@ -30,19 +30,19 @@ else
     echo "pip FAILED TO INSTALL!!!" >> $log_file
 fi
 
-sudo apt-get -y install bpython
-if type -p bpython > /dev/null; then
-    echo "bpython Installed" >> $log_file
-else
-    echo "bpython FAILED TO INSTALL!!!" >> $log_file
-fi
+#sudo apt-get -y install bpython
+#if type -p bpython > /dev/null; then
+#    echo "bpython Installed" >> $log_file
+#else
+#    echo "bpython FAILED TO INSTALL!!!" >> $log_file
+#fi
 
-sudo apt-get -y install bpython3
-if type -p bpython3 > /dev/null; then
-    echo "bpython3 Installed" >> $log_file
-else
-    echo "bpython3 FAILED TO INSTALL!!!" >> $log_file
-fi
+#sudo apt-get -y install bpython3
+#if type -p bpython3 > /dev/null; then
+#    echo "bpython3 Installed" >> $log_file
+#else
+#    echo "bpython3 FAILED TO INSTALL!!!" >> $log_file
+#fi
 
 sudo apt install unzip fontconfig fzf zoxide
 
