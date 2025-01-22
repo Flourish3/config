@@ -44,7 +44,7 @@ fi
 #    echo "bpython3 FAILED TO INSTALL!!!" >> $log_file
 #fi
 
-sudo apt install unzip fontconfig fzf zoxide
+sudo apt install unzip fontconfig fzf zoxide tmux
 
 # Fonts
 wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip
@@ -58,6 +58,21 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Need to add cargo to PATH before running this
 cargo install git-delta
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+sudo snap install helm --classic
+
+# Github CLI
+(type -p wget >/dev/null || (sudo apt update && sudo apt-get install wget -y)) \
+    && sudo mkdir -p -m 755 /etc/apt/keyrings \
+    && out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+    && cat $out | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
+    && sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
+    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+    && sudo apt update \
+    && sudo apt install gh -y
+
 
 echo -e "\n====== Summary ======\n"
 cat $log_file

@@ -22,10 +22,13 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+zinit load wfxr/forgit
+export PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
 
 # Add in snippets
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
+zinit snippet OMZP::kubectl
 
 zinit cdreplay -q
 
@@ -55,6 +58,7 @@ setopt hist_find_no_dups
 # Aliases
 alias ls='ls --color'
 alias gs='git status'
+alias ga='git forgit add'
 alias gca='git commit --amend --no-edit'
 alias ezsh='code ~/.zshrc'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -65,3 +69,9 @@ bindkey '^[[1;5D' backward-word    # Ctrl+left arrow
 bindkey '\C-H' backward-kill-word # Ctrl-Backspace: delete previous word
 bindkey '\e[3;5~' kill-word # Ctrl-Delete: delete next word
 
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+eval "$(uvx --generate-shell-completion zsh)"
+eval "$(uv generate-shell-completion zsh)"
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

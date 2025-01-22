@@ -1,0 +1,38 @@
+{
+    "files.autoSave": "onFocusChange",
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.iconTheme": "material-icon-theme",
+    "telemetry.telemetryLevel": "off",
+    "editor.minimap.enabled": false,
+    "go.languageServerFlags": [
+        /*  "-rpc.trace"*/
+    ],
+    "go.useLanguageServer": true,
+    "gopls": {
+        "build.directoryFilters": [
+            "-**/assets",
+            "-**/.github",
+            "-**/github",
+            "-**/innosetup"
+        ]
+    },
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    /*    "editor.renderWhitespace": "boundary",*/
+    "editor.rulers": [
+        100
+    ],
+    "C_Cpp.files.exclude": {
+        "**/tmp/work/corei7-64-poky-linux/heliosdevice/": false,
+        "**/.vscode": true,
+        "**/.vs": true
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "extensions.ignoreRecommendations": true,
+    "go.toolsManagement.autoUpdate": true,
+    "editor.formatOnSave": true,
+    /*"python.analysis.inlayHints.variableTypes": true,*/
+    "files.exclude": {
+        "**/__pycache__": true
+    }
+}
